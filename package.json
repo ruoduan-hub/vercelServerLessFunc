@@ -11,5 +11,8 @@
   "license": "ISC",
   "devDependencies": {
     "@vercel/node": "^3.0.3"
+  },
+  "dependencies": {
+    "openai": "^4.3.1"
   }
 }
