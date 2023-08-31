@@ -13,14 +13,15 @@ export default async function (
     size = "512x512",
     response_format = "url",
   } = request.query;
+
+  console.log(content,n,size,response_format)
   const openai = new OpenAI({
     organization: process.env.OPENAI_Organization,
     apiKey: process.env.OPENAI_ApiKey,
   });
   const image = await openai.images.generate({
     prompt: String(content),
-    n: n as number,
-    size: size as any,
+    n: Number(n) as number,
     response_format: response_format as formatType,
   });
   response.send(image.data);
