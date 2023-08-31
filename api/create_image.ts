@@ -7,8 +7,8 @@ export default async function (
 ) {
   const { content = "Empty 404", n = 1, size = '512x512'} = request.query;
   const openai = new OpenAI({
-    organization: process.env.OPENAI_ApiKey,
-    apiKey: process.env.OPENAI_Organization,
+    organization: process.env.OPENAI_Organization,
+    apiKey: process.env.OPENAI_ApiKey,
   });
   const image = await openai.images.generate({ prompt: String(content) });
   response.send(image.data);
